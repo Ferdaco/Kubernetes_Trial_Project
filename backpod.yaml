@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqldep
+  labels:
+    app4: erol3
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app2 : "erol2"
+  template:
+    metadata:
+      labels:
+        app2 : erol2
+    spec:
+      containers:
+      - name: mysqlcon
+        image: mysql:latest
+        ports:
+          - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "1234"
+        - name: MYSQL_DATABASE
+          value: "bookstore_db"
+        - name: MYSQL_USER
+          value: "clarusway"
+        - name: MYSQL_PASSWORD
+          value: "Clarusway_1"

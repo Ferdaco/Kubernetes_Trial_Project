@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpenim
+  labels:
+    app: erol
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: erol
+  template:
+    metadata:
+      labels:
+        app: erol
+    spec:
+      containers:
+      - name: safiyecon
+        image: safiye01/kuber:1.0
+        ports:
+        - containerPort: 80
